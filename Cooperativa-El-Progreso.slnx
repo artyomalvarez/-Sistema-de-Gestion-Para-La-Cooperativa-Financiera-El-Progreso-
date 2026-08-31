@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Cooperativa-El-Progreso.console/Cooperativa-El-Progreso.console.csproj" />
+  <Project Path="Cooperativa-El-Progreso.unix/Cooperativa-El-Progreso.unix.csproj" />
+</Solution>
