@@ -11,8 +11,7 @@ public class Associate
     
     public List<Transaction> Transactions { get; set; } = new List<Transaction>();
 
-    // El requerimiento dice: "El saldo es siempre el resultado de sus movimientos"[cite: 1].
-    // ¡Aquí te toca poner tu lógica luego para sumar/restar la lista de Transactions!
+    // Calculates current balance by adding deposits and subtracting withdrawals including commissions
     public decimal GetBalance()
     {
         decimal balance = 0;

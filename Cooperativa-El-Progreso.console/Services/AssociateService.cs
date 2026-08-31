@@ -8,7 +8,6 @@ public class AssociateService
     private readonly IAssociateRepository _associateRepository;
     private readonly ITransactionRepository _transactionRepository;
 
-    // Inyección de dependencias
     public AssociateService(IAssociateRepository associateRepository, ITransactionRepository transactionRepository)
     {
         _associateRepository = associateRepository;
@@ -17,19 +16,15 @@ public class AssociateService
 
     public void RegisterAssociate(Associate associate)
     {
-        // Regla: No pueden existir dos asociados con el mismo documento
+        // Validation: Cannot register two associates with the same document number
         var existingAssociate = _associateRepository.GetByDocument(associate.DocumentNumber);
-        
         if (existingAssociate != null)
         {
             throw new InvalidOperationException("Error: Ya existe un asociado con este número de documento.");
         }
 
-        // Asignamos ID y fecha de creación automáticamente
         associate.Id = Guid.NewGuid();
         associate.CreatedAt = DateTime.Now;
-        
-        // Al registrarse, la lista de transacciones inicia vacía (saldo en cero)
         _associateRepository.Add(associate);
     }
 
@@ -45,9 +40,31 @@ public class AssociateService
 
     public List<Associate> SearchByName(string namePartial)
     {
-        // TODO: Retornar los asociados cuyo nombre contenga 'namePartial'
-        // TODO: Ignorar mayúsculas y minúsculas (usar .ToLower() o StringComparison.OrdinalIgnoreCase)[cite: 1]
-        return new List<Associate>(); 
+        if (string.IsNullOrWhiteSpace(namePartial))
+        {
+            return new List<Associate>();
+        }
+
+        // Case-insensitive partial name search
+        return _associateRepository.GetAll()
+            .Where(a => a.Name.Contains(namePartial, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+    }
+
+    public void UpdateAssociate(Associate associate)
+    {
+        var existing = _associateRepository.GetById(associate.Id);
+        if (existing == null)
+        {
+            throw new KeyNotFoundException("Error: Asociado no encontrado.");
+        }
+
+        // Only update profile and contact information
+        existing.Name = associate.Name;
+        existing.Phone = associate.Phone;
+        existing.Address = associate.Address;
+
+        _associateRepository.Update(existing);
     }
 
     public void DeleteAssociate(Guid id)
@@ -58,7 +75,7 @@ public class AssociateService
             throw new KeyNotFoundException("Error: Asociado no encontrado.");
         }
 
-        // Regla: No se puede eliminar si tiene movimientos
+        // Business Rule: Cannot delete an associate if they have registered transaction history
         var history = _transactionRepository.GetByAssociateId(id);
         if (history.Any())
         {

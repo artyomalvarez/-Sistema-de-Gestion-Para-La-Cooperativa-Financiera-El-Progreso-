@@ -17,6 +17,7 @@ public class TrmService : ITrmService
     {
         try
         {
+            // Asynchronous consumption of the official TRM endpoint
             var response = await _httpClient.GetAsync(TrmApiUrl);
 
             if (!response.IsSuccessStatusCode)
@@ -34,13 +35,9 @@ public class TrmService : ITrmService
 
             return trmList?.FirstOrDefault();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            // Business Rule: If the API fails (network error, timeout, DNS issue, deserialization error),
-            // the application MUST NOT crash. Log/inspect if necessary and return null gracefully.
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"[Warning] Failed to fetch TRM data: {ex.Message}");
-            Console.ResetColor();
+            // Resilience Rule: If network or external service fails, application does not crash and gracefully returns null
             return null;
         }
     }

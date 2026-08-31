@@ -4,7 +4,7 @@ namespace Cooperativa_El_Progreso.console.Repositories;
 
 public class AssociateRepository : IAssociateRepository
 {
-    // Simulamos la base de datos en memoria
+    
     private readonly List<Associate> _associates = new();
 
     public void Add(Associate associate)

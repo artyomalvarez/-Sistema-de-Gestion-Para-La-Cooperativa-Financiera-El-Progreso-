@@ -9,6 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Folder Include="DTO\" />
+      <Folder Include="enums\" />
       <Folder Include="Ui\" />
     </ItemGroup>
 

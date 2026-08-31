@@ -9,11 +9,10 @@ public class Transaction
     public DateTime Date { get; set; }
     
     public Guid AssociateId { get; set; }
-    public Guid UserId { get; set; } // La persona que realizó el movimiento
+    public Guid UserId { get; set; }
 
     public decimal GetTotalDeduction()
     {
-        // To be implemented
-        return 0;
+        return Type == TransactionType.Withdrawal ? Amount + Commission : 0m;
     }
 }
