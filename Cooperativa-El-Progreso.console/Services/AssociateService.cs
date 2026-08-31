@@ -17,7 +17,7 @@ public class AssociateService
 
     public void RegisterAssociate(Associate associate)
     {
-        // Regla: No pueden existir dos asociados con el mismo documento[cite: 1]
+        // Regla: No pueden existir dos asociados con el mismo documento
         var existingAssociate = _associateRepository.GetByDocument(associate.DocumentNumber);
         
         if (existingAssociate != null)
@@ -29,7 +29,7 @@ public class AssociateService
         associate.Id = Guid.NewGuid();
         associate.CreatedAt = DateTime.Now;
         
-        // Al registrarse, la lista de transacciones inicia vacía (saldo en cero)[cite: 1]
+        // Al registrarse, la lista de transacciones inicia vacía (saldo en cero)
         _associateRepository.Add(associate);
     }
 
@@ -58,7 +58,7 @@ public class AssociateService
             throw new KeyNotFoundException("Error: Asociado no encontrado.");
         }
 
-        // Regla: No se puede eliminar si tiene movimientos[cite: 1]
+        // Regla: No se puede eliminar si tiene movimientos
         var history = _transactionRepository.GetByAssociateId(id);
         if (history.Any())
         {
