@@ -9,11 +9,26 @@ public class Associate
     public string Address { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; }
     
-    public List<Transaction> Transactions { get; set; } = new();
+    public List<Transaction> Transactions { get; set; } = new List<Transaction>();
 
     // El requerimiento dice: "El saldo es siempre el resultado de sus movimientos"[cite: 1].
     // ¡Aquí te toca poner tu lógica luego para sumar/restar la lista de Transactions!
     public decimal GetBalance()
     {
-        throw new NotImplementedException("Aquí va tu lógica del saldo");
+        decimal balance = 0;
+
+        foreach (var transaction in Transactions)
+        {
+            if (transaction.Type == TransactionType.Deposit)
+            {
+                balance += transaction.Amount;
+            }
+            else if (transaction.Type == TransactionType.Withdrawal)
+            {
+                balance -= (transaction.Amount + transaction.Commission);
+            }
+        }
+
+        return balance;
     }
+}

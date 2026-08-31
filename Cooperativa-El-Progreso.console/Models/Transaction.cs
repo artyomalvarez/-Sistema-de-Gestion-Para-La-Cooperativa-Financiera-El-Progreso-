@@ -10,4 +10,10 @@ public class Transaction
     
     public Guid AssociateId { get; set; }
     public Guid UserId { get; set; } // La persona que realizó el movimiento
+
+    public decimal GetTotalDeduction()
+    {
+        // To be implemented
+        return 0;
+    }
 }

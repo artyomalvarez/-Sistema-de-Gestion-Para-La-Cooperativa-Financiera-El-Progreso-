@@ -17,9 +17,20 @@ public class AssociateService
 
     public void RegisterAssociate(Associate associate)
     {
-        // TODO: Validar que NO exista un asociado con el mismo DocumentNumber[cite: 1]
-        // TODO: Si existe, lanzar una excepción (throw new Exception("..."))
-        // TODO: Si no existe, agregarlo usando _associateRepository.Add(associate)
+        // Regla: No pueden existir dos asociados con el mismo documento[cite: 1]
+        var existingAssociate = _associateRepository.GetByDocument(associate.DocumentNumber);
+        
+        if (existingAssociate != null)
+        {
+            throw new InvalidOperationException("Error: Ya existe un asociado con este número de documento.");
+        }
+
+        // Asignamos ID y fecha de creación automáticamente
+        associate.Id = Guid.NewGuid();
+        associate.CreatedAt = DateTime.Now;
+        
+        // Al registrarse, la lista de transacciones inicia vacía (saldo en cero)[cite: 1]
+        _associateRepository.Add(associate);
     }
 
     public List<Associate> GetAllAssociates()
@@ -41,8 +52,19 @@ public class AssociateService
 
     public void DeleteAssociate(Guid id)
     {
-        // TODO: Buscar si el asociado tiene movimientos registrados en _transactionRepository[cite: 1]
-        // TODO: Calcular si su saldo actual es mayor a 0[cite: 1]
-        // TODO: Si tiene movimientos o saldo, lanzar excepción. Si está en ceros y sin historial, borrarlo.
+        var associate = _associateRepository.GetById(id);
+        if (associate == null)
+        {
+            throw new KeyNotFoundException("Error: Asociado no encontrado.");
+        }
+
+        // Regla: No se puede eliminar si tiene movimientos[cite: 1]
+        var history = _transactionRepository.GetByAssociateId(id);
+        if (history.Any())
+        {
+            throw new InvalidOperationException("Error: No se puede eliminar un asociado que tenga movimientos registrados.");
+        }
+
+        _associateRepository.Delete(id);
     }
 }
