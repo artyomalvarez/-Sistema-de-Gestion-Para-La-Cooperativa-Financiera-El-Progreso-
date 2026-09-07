@@ -1,0 +1,69 @@
+<mxfile host="app.diagrams.net" pages="1"><diagram id="mk1ALpQCRGgKu3UAigd0" name="Repositorios">
+    <mxGraphModel dx="992" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="AssociateRepository" vertex="1">
+          <mxGeometry height="216" width="350" x="10" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-2" parent="JnWKAVbhuFKjXBCqg59R-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- List&amp;lt;Associate&amp;gt;: _associates" vertex="1">
+          <mxGeometry height="26" width="350" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-7" parent="JnWKAVbhuFKjXBCqg59R-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ void: Add(associate: Associate)" vertex="1">
+          <mxGeometry height="26" width="350" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-9" parent="JnWKAVbhuFKjXBCqg59R-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="350" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-3" parent="JnWKAVbhuFKjXBCqg59R-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ List&amp;lt;Associate&amp;gt;: GetAll()" vertex="1">
+          <mxGeometry height="26" width="350" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-6" parent="JnWKAVbhuFKjXBCqg59R-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Associate: GetById(id: Guid)" vertex="1">
+          <mxGeometry height="26" width="350" y="112" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-8" parent="JnWKAVbhuFKjXBCqg59R-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ Associate: GetByDocument(documentNumber: string)" vertex="1">
+          <mxGeometry height="26" width="350" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-5" parent="JnWKAVbhuFKjXBCqg59R-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ void: Update(associate: Associate)" vertex="1">
+          <mxGeometry height="26" width="350" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="JnWKAVbhuFKjXBCqg59R-4" parent="JnWKAVbhuFKjXBCqg59R-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ void: Delete(id: Guid)" vertex="1">
+          <mxGeometry height="26" width="350" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Jc9kKzPfMcf8BQ2Ohwne-1" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="TransactionRepository" vertex="1">
+          <mxGeometry height="138" width="350" x="20" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Jc9kKzPfMcf8BQ2Ohwne-2" parent="Jc9kKzPfMcf8BQ2Ohwne-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="- List&amp;lt;Transaction&amp;gt;: _transactions" vertex="1">
+          <mxGeometry height="26" width="350" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Jc9kKzPfMcf8BQ2Ohwne-10" parent="Jc9kKzPfMcf8BQ2Ohwne-1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="350" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Jc9kKzPfMcf8BQ2Ohwne-4" parent="Jc9kKzPfMcf8BQ2Ohwne-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ List&amp;lt;Transaction&amp;gt;: GetByAssociateId(associateId: Guid)" vertex="1">
+          <mxGeometry height="26" width="350" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Jc9kKzPfMcf8BQ2Ohwne-11" parent="Jc9kKzPfMcf8BQ2Ohwne-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ void: Add(transaction: Transaction)" vertex="1">
+          <mxGeometry height="26" width="350" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="Jc9kKzPfMcf8BQ2Ohwne-5" parent="Jc9kKzPfMcf8BQ2Ohwne-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ List&amp;lt;Transaction&amp;gt;: GetAll()" vertex="1">
+          <mxGeometry height="26" width="350" y="112" as="geometry" />
+        </mxCell>
+        <mxCell id="SY_8lCb9p2c4dXA0lrnE-1" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;IAssociateRepository    &lt;/p&gt;&lt;br&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp; void: Add(associate: Associate)&lt;br&gt;+&amp;nbsp; List&amp;lt;Associate&amp;gt;: GetAll()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp;Associate :&amp;nbsp;GetById(id: Guid)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Associate : GetByDocument(documentNumber: string)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp;&amp;nbsp;void:&amp;nbsp;Update(associate: Associate)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp; void&lt;sup&gt;&amp;nbsp;:&amp;nbsp;&lt;/sup&gt;Delete(id: Guid):&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="320" x="390" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="SY_8lCb9p2c4dXA0lrnE-3" edge="1" parent="1" source="Jc9kKzPfMcf8BQ2Ohwne-1" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="SY_8lCb9p2c4dXA0lrnE-1" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="200" y="400" as="sourcePoint" />
+            <mxPoint x="360" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SY_8lCb9p2c4dXA0lrnE-4" edge="1" parent="1" source="JnWKAVbhuFKjXBCqg59R-1" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.526;exitY=-0.014;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="SY_8lCb9p2c4dXA0lrnE-1" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="220" y="430" as="sourcePoint" />
+            <mxPoint x="415" y="464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  </mxfile>
